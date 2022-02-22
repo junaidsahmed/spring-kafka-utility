@@ -10,19 +10,27 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * @author Junaid Shakeel
+ * @project Spring Kafka Starter Utility
+ * @email junaid.shakeel@live.com
+ */
 @Configuration
 @ConditionalOnClass(KafkaTopicInterface.class)
-@EnableConfigurationProperties({KafkaTopicConfigProperties.class,KafkaProducerConfigProperties.class})
+@EnableConfigurationProperties({KafkaTopicConfigProperties.class,KafkaProducerConfigProperties.class,KafkaConsumerConfig.class})
 public class KafkaAutoConfiguration {
 
      KafkaTopicConfigProperties kafkaTopicConfigProperties;
 
      KafkaProducerConfigProperties kafkaProducerConfigProperties;
 
+     KafkaConsumerConfig kafkaConsumerConfig;
+
     @Autowired
-    public KafkaAutoConfiguration(KafkaTopicConfigProperties kafkaTopicConfigProperties, KafkaProducerConfigProperties kafkaProducerConfigProperties) {
+    public KafkaAutoConfiguration(KafkaTopicConfigProperties kafkaTopicConfigProperties, KafkaProducerConfigProperties kafkaProducerConfigProperties,KafkaConsumerConfig kafkaConsumerConfig) {
         this.kafkaTopicConfigProperties = kafkaTopicConfigProperties;
         this.kafkaProducerConfigProperties = kafkaProducerConfigProperties;
+        this.kafkaConsumerConfig= kafkaConsumerConfig;
     }
 
     @Bean
