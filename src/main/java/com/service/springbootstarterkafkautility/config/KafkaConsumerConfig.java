@@ -96,10 +96,10 @@ public class KafkaConsumerConfig{
     /* consumer factory for JSON Objects */
 
     public ConsumerFactory<String, Object> consumerFactoryForObjects() {
-        /* not using the following approach because at the time of deserialization header information also required
+        /* not using the following approach because at the time of deserialization header information are also required
         * and generic deserialization would not possible by following approach
         *  */
-//        JsonDeserializer<Object> jsonDeserializer = new JsonDeserializer();
+//        JsonDeserializer<MyData> jsonDeserializer = new JsonDeserializer(MyData.class);
 //        jsonDeserializer.setUseTypeMapperForKey(true);
 //        jsonDeserializer.addTrustedPackages("*");
         //return new DefaultKafkaConsumerFactory<>(consumerConfigsForJsonObjects(),new StringDeserializer(),jsonDeserializer);
